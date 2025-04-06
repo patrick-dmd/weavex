@@ -28,11 +28,7 @@ export async function createPost(formData: FormData, parentId?: string) {
 
     return id;
   } catch (error) {
-    throw new Error(
-      error instanceof Error
-        ? error.message
-        : "Something went wrong. Please try again later.",
-    );
+    throw new Error("Something went wrong. Please try again later.");
   }
 }
 
@@ -70,11 +66,7 @@ export async function updatePost(id: string, formData: FormData) {
 
     return id;
   } catch (error) {
-    throw new Error(
-      error instanceof Error
-        ? error.message
-        : "Something went wrong. Please try again later.",
-    );
+    throw new Error("Something went wrong. Please try again later.");
   }
 }
 
@@ -90,10 +82,6 @@ export async function deletePost(id: string) {
     await handleFiles([], images);
     await prisma.post.delete({ where: { id } });
   } catch (error) {
-    throw new Error(
-      error instanceof Error
-        ? error.message
-        : "Something went wrong. Please try again later.",
-    );
+    throw new Error("Something went wrong. Please try again later.");
   }
 }
